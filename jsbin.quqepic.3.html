@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by vargazsa (http://jsbin.com/quqepic/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Színóra">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet">
+  <title>Színóra</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Righteous', cursive;
+  font-size: 68px;
+  margin-top: -40px;
+}
+
+</style>
+</head>
+<body>
+<div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock(){
+var date = new Date();
+
+var hours = date.getHours();
+if (hours < 10){
+  hours = '0' + hours;
+}
+var minutes = date.getMinutes(); 
+if (minutes < 10){
+  minutes = '0' + minutes;
+}
+var seconds = date.getSeconds();
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+
+var clockFace = hours + ":" + minutes + ":" + seconds;
+
+document.getElementById('clock').innerHTML = clockFace;
+  
+setTimeout(function() {
+  colorClock();
+}, 1000);
+  
+var hexColor = '#' + hours + minutes + seconds;  
+var fontColor = '#' + ((hours + minutes + seconds) - 10000);
+  
+document.body.style.background = hexColor;
+document.body.style.color = "silver";
+  
+}
+colorClock();
+</script>
+</body>
+</html>
